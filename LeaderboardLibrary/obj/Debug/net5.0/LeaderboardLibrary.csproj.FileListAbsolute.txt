@@ -1,0 +1,12 @@
+C:\Users\josep\Documents\Code\TrainingPlayground\LeaderboardLibrary\bin\Debug\net5.0\LeaderboardLibrary.deps.json
+C:\Users\josep\Documents\Code\TrainingPlayground\LeaderboardLibrary\bin\Debug\net5.0\LeaderboardLibrary.dll
+C:\Users\josep\Documents\Code\TrainingPlayground\LeaderboardLibrary\bin\Debug\net5.0\ref\LeaderboardLibrary.dll
+C:\Users\josep\Documents\Code\TrainingPlayground\LeaderboardLibrary\bin\Debug\net5.0\LeaderboardLibrary.pdb
+C:\Users\josep\Documents\Code\TrainingPlayground\LeaderboardLibrary\obj\Debug\net5.0\LeaderboardLibrary.csprojAssemblyReference.cache
+C:\Users\josep\Documents\Code\TrainingPlayground\LeaderboardLibrary\obj\Debug\net5.0\LeaderboardLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\josep\Documents\Code\TrainingPlayground\LeaderboardLibrary\obj\Debug\net5.0\LeaderboardLibrary.AssemblyInfoInputs.cache
+C:\Users\josep\Documents\Code\TrainingPlayground\LeaderboardLibrary\obj\Debug\net5.0\LeaderboardLibrary.AssemblyInfo.cs
+C:\Users\josep\Documents\Code\TrainingPlayground\LeaderboardLibrary\obj\Debug\net5.0\LeaderboardLibrary.csproj.CoreCompileInputs.cache
+C:\Users\josep\Documents\Code\TrainingPlayground\LeaderboardLibrary\obj\Debug\net5.0\LeaderboardLibrary.dll
+C:\Users\josep\Documents\Code\TrainingPlayground\LeaderboardLibrary\obj\Debug\net5.0\ref\LeaderboardLibrary.dll
+C:\Users\josep\Documents\Code\TrainingPlayground\LeaderboardLibrary\obj\Debug\net5.0\LeaderboardLibrary.pdb
