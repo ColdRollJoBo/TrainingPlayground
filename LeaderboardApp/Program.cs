@@ -11,46 +11,86 @@ namespace LeaderboardApp
     {
         static void Main(string[] args)
         {
-            int amountOfPlayers = 0;
+            // Creating a list of players in the tournament
+            // to be used for leaderboard rankings.
+            // TODO: May want to look at using a Map instead of a list. 
+            List<Player> listOfPlayers = new List<Player>();
+            
+            // int amountOfPlayers;
+            
+            WelcomeMessage();
+            
+            int userMenuSelection = int.Parse(ReadLine());
+            
+            // Here is where the user will make all the interations with the program 
+            LeaderboardMenu(listOfPlayers, userMenuSelection);
 
-            WriteLine("Please enter the number of players for the tournament");
-            try
-            {
-                amountOfPlayers = int.Parse(ReadLine());
+            // WriteLine("Please enter the number of players for the tournament");
 
-            }
-            catch (System.FormatException)
-            {
-                WriteLine("You entered an incorrect value.\nPlease enter a valid number.");
-                amountOfPlayers = int.Parse(ReadLine());
 
-            }
+            // try
+            // {
+            //     amountOfPlayers = int.Parse(ReadLine());
+            // }
+            // catch (System.FormatException)
+            // {
+            //     WriteLine("You entered an incorrect value.\nPlease enter a valid number.");
+            //     amountOfPlayers = int.Parse(ReadLine());
+            // }
 
-            List<Player> playerNames = new List<Player>();
 
-            for (int i = 1; i <= amountOfPlayers; i++)
-            {
-                WriteLine($"Enter the name of player {i}");
-                string newPlayerName = ReadLine();
-                playerNames.Add(new Player { Name = newPlayerName });
-            }
+            // for (int i = 1; i <= amountOfPlayers; i++)
+            // {
+            //     WriteLine($"Enter the name of player {i}");
+            //     string newPlayerName = ReadLine();
+            //     listOfPlayers.Add(new Player { Name = newPlayerName });
+            // }
 
-            RefreshLeaderBoard(playerNames);
+            // RefreshLeaderBoard(listOfPlayers);
 
-            WriteLine("Would you like to add an additional player?");
-            string tourOrgAnswer = ReadLine();
-            if (tourOrgAnswer == "y")
-            {
-                InsertNewPlayer(playerNames);
-            }
 
+
+            // WriteLine("Would you like to add an additional player?");
+            // string tourOrgAnswer = ReadLine();
+            // if (tourOrgAnswer == "y")
+            // {
+            //     InsertNewPlayer(listOfPlayers);
+            // }
 
         }
 
-        public static void InsertNewPlayer(List<Player> playerList)
+        // Custom Methods Below
+        public static void WelcomeMessage()
         {
-            WriteLine("Enter the name of the new player enting the tournament ");
-            string newPlayerName = ReadLine();
+            WriteLine("\nWelcome to the custom tournament leaderboard.\n" +
+            "Here you will be able to add players and keep a running tally of points.\n");
+            
+            WriteLine("Please select an option below.\n\n1: Add Player\n" +
+            "2: Edit Player\n3: Remove Player\n4: Refresh Leaderboard");
+
+        }
+
+
+        // Make this return an int
+         public static void LeaderboardMenu(List<Player> playerList, int selection)
+        {
+
+            switch(selection)
+            {
+                case 1:
+                    WriteLine("Enter the player's name");
+                    string addedPlayerName = ReadLine();
+                    InsertNewPlayer(playerList, addedPlayerName);
+                    break;
+
+                
+            }
+            WriteLine("Please select an option below.\n\n1: Add Player\n" +
+            "2: Edit Player\n3: Remove Player\n4: Refresh Leaderboard");
+        }
+
+        public static void InsertNewPlayer(List<Player> playerList, string newPlayerName)
+        {
             playerList.Add(new Player { Name = newPlayerName });
             RefreshLeaderBoard(playerList);
         }
@@ -67,6 +107,10 @@ namespace LeaderboardApp
             }
 
         }
+
+        
+
+       
 
 
     }
