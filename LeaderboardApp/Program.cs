@@ -13,7 +13,7 @@ namespace LeaderboardApp
         {
             // Creating a list of players in the tournament
             // to be used for leaderboard rankings.
-            // TODO: May want to look at using a Map or Hash Map instead of a list. 
+            // TODO: May want to look at using a dictionary
             List<Player> listOfPlayers = new List<Player>();
 
             // int amountOfPlayers;
@@ -25,37 +25,7 @@ namespace LeaderboardApp
             // Here is where the user will make all the interations with the program 
             LeaderboardMenu(listOfPlayers, userMenuSelection);
 
-            // WriteLine("Please enter the number of players for the tournament");
 
-
-            // try
-            // {
-            //     amountOfPlayers = int.Parse(ReadLine());
-            // }
-            // catch (System.FormatException)
-            // {
-            //     WriteLine("You entered an incorrect value.\nPlease enter a valid number.");
-            //     amountOfPlayers = int.Parse(ReadLine());
-            // }
-
-
-            // for (int i = 1; i <= amountOfPlayers; i++)
-            // {
-            //     WriteLine($"Enter the name of player {i}");
-            //     string newPlayerName = ReadLine();
-            //     listOfPlayers.Add(new Player { Name = newPlayerName });
-            // }
-
-            // RefreshLeaderBoard(listOfPlayers);
-
-
-
-            // WriteLine("Would you like to add an additional player?");
-            // string tourOrgAnswer = ReadLine();
-            // if (tourOrgAnswer == "y")
-            // {
-            //     InsertNewPlayer(listOfPlayers);
-            // }
 
         }
 
@@ -85,8 +55,9 @@ namespace LeaderboardApp
                 case 2:
                     EditPlayer(playerList);
                     break;
-                // case 3:
-                //     break;
+                case 3:
+                    RemovePlayer(playerList);
+                    break;
                 case 4:
                     RefreshLeaderBoard(playerList);
                     break;
@@ -106,25 +77,63 @@ namespace LeaderboardApp
 
         public static void EditPlayer(List<Player> playerList)
         {
+            // WriteLine(format: "Choose an option of the edits you'd like to make. {0} or {1}",
+            // arg0: "Edit Points",
+            // arg1: "Edit Player Name");
+
+
             WriteLine("Enter the name of the player you want to edit\n");
             //TODO: Print out all the player names currently in list. May want to use indexes instead for easier access. 
+
+            foreach (Player p in playerList)
+            {
+                // If we use indexes add a + 1 so a player does not have a zero next to their name
+                // but then you will need to -1 when looking in the list becuase of the zero indexing. 
+                // WriteLine(playerList.IndexOf(p) + " " + p.Name);
+                WriteLine(p.Name);
+
+            }
+
+            try
+            {
+                string playerToEdit = ReadLine();
+                Player foundPlayer = playerList.Find(x => x.Name == playerToEdit);
+                if (foundPlayer.Equals(foundPlayer))
+                {
+                    WriteLine("Enter the number of points to award this player");
+                    foundPlayer.points = int.Parse(ReadLine()) + foundPlayer.points;
+                }
+            }
+            catch (SystemException)
+            {
+                WriteLine("\nThat player is not registered in the tournament.\n");
+                EditPlayer(playerList);
+            }
+        }
+
+        public static void RemovePlayer(List<Player> playerList)
+        {
+            WriteLine("Enter the name of the player you want to remove\n");
             
-            foreach(Player p in playerList)
+            foreach (Player p in playerList)
             {
                 WriteLine(p.Name);
             }
-            
-            string playerToEdit = ReadLine();
 
-            Player foundPlayer = playerList.Find(x => x.Name == playerToEdit);
-
-            if (foundPlayer.Equals(foundPlayer))
+             try
             {
-                WriteLine("Enter the number of points to award this player");
-                foundPlayer.points = int.Parse(ReadLine());
+                string playerToEdit = ReadLine();
+                Player foundPlayer = playerList.Find(x => x.Name == playerToEdit);
+                if (foundPlayer.Equals(foundPlayer))
+                {
+                   playerList.Remove(foundPlayer);
+                }
             }
-
-
+            catch (SystemException)
+            {
+                WriteLine("\nThat player is not registered in the tournament.\n");
+                RemovePlayer(playerList);
+            }
         }
 
         public static void RefreshLeaderBoard(List<Player> playerList)
